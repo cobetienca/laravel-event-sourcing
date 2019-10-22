@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-event-sourcing",
+    "name": "cobetienca/laravel-event-sourcing",
     "description": "The easiest way to get started with event sourcing in Laravel",
     "keywords": [
         "spatie",
@@ -10,7 +10,7 @@
         "projectors",
         "reactors"
     ],
-    "homepage": "https://github.com/spatie/laravel-event-sourcing",
+    "homepage": "https://github.com/cobetienca/laravel-event-sourcing",
     "license": "MIT",
     "authors": [
         {
@@ -35,7 +35,7 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.1",
-        "orchestra/testbench": "^4.0",
+        "orchestra/testbench": "^3.6",
         "phpunit/phpunit": "^8.0",
         "spatie/phpunit-snapshot-assertions": "^2.1"
     },
