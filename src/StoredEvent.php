@@ -67,19 +67,19 @@ class StoredEvent implements Arrayable
 
     public function handle()
     {
-        Projectionist::handleWithSyncProjectors($this);
+        // Projectionist::handleWithSyncProjectors($this);
 
-        if (method_exists($this->event, 'tags')) {
-            $tags = $this->event->tags();
-        }
+        // if (method_exists($this->event, 'tags')) {
+        //     $tags = $this->event->tags();
+        // }
 
-        $storedEventJob = call_user_func(
-            [config('event-sourcing.stored_event_job'), 'createForEvent'],
-            $this,
-            $tags ?? []
-        );
+        // $storedEventJob = call_user_func(
+        //     [config('event-sourcing.stored_event_job'), 'createForEvent'],
+        //     $this,
+        //     $tags ?? []
+        // );
 
-        dispatch($storedEventJob->onQueue($this->event->queue ?? config('event-sourcing.queue')));
+        // dispatch($storedEventJob->onQueue($this->event->queue ?? config('event-sourcing.queue')));
     }
 
     protected static function getActualClassForEvent(string $class): string
