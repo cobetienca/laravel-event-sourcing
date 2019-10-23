@@ -26,6 +26,12 @@ If you want to skip to reading code immediately, here are some example apps. In 
 
 You can find installation instructions and detailed instructions on how to use this package at [the dedicated documentation site](https://docs.spatie.be/laravel-event-sourcing/v1/introduction/).
 
+If you want to turn off persistent event, please follow below steps:
+
+- Your Events should implement ShouldNotBeStored interface.
+- Update event-sourcing.php configuration file: 'event_serializer' => \Spatie\EventSourcing\EventSerializers\ImpersistentJsonEventSerializer::class,
+- UPdate event-sourceing.php configuraiton file: ''stored_event_repository' => \Spatie\EventSourcing\ImpersistentEventRepository::class,
+
 ## Upgrading from laravel-event-projector
 
 This package supercedes [laravel-event-projector](https://github.com/spatie/laravel-event-projector). It has the same API. Upgrading from laravel-event-projector to laravel-event-sourcing is easy. Take a look at [our upgrade guide](https://github.com/spatie/laravel-event-sourcing/edit/master/UPGRADING.md).
