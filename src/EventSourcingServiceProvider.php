@@ -13,6 +13,7 @@ use Spatie\EventSourcing\Console\MakeStorableEventCommand;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\Console\CacheEventHandlersCommand;
 use Spatie\EventSourcing\Console\ClearCachedEventHandlersCommand;
+use Spatie\EventSourcing\EventSerializers\ImpersistentEventSerializer;
 
 final class EventSourcingServiceProvider extends ServiceProvider
 {
@@ -65,6 +66,7 @@ final class EventSourcingServiceProvider extends ServiceProvider
             ->give(config('event-sourcing.stored_event_repository'));
 
         $this->app->bind(EventSerializer::class, config('event-sourcing.event_serializer'));
+        $this->app->bind(ImpersistentEventSerializer::class, config('event-sourcing.event_serializer'));
 
         $this->bindCommands();
     }

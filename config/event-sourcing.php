@@ -75,8 +75,10 @@ return [
      * This class is responsible for serializing events. By default an event will be serialized
      * and stored as json. You can customize the class name. A valid serializer
      * should implement Spatie\EventSourcing\EventSerializers\Serializer.
+     * 2 choices: JsonEventSerializer or ImpersistentJsonEventSerializer.
+     * By using impersistent, you cannot use replay event feature.
      */
-    'event_serializer' => \Spatie\EventSourcing\EventSerializers\JsonEventSerializer::class,
+    'event_serializer' => \Spatie\EventSourcing\EventSerializers\ImpersistentEventSerializer::class,
 
     /*
      * When replaying events, potentially a lot of events will have to be retrieved.

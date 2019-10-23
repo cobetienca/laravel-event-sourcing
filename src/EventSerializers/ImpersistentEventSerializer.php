@@ -8,5 +8,5 @@ interface ImpersistentEventSerializer
 {
     public function serialize(ShouldNotBeStored $event): string;
 
-    public function deserialize(string $eventClass, string $json): ShoShouldNotBeStoreduldBeStored;
+    public function deserialize(string $eventClass, string $json): ShouldNotBeStored;
 }
