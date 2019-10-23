@@ -7,6 +7,7 @@ use Illuminate\Support\LazyCollection;
 use Spatie\EventSourcing\Models\EloquentStoredEvent;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\Exceptions\InvalidEloquentStoredEventModel;
+use Symfony\Component\Serializer\Exception\UnsupportedException;
 
 class EloquentStoredEventRepository implements StoredEventRepository
 {
@@ -97,5 +98,10 @@ class EloquentStoredEventRepository implements StoredEventRepository
         }
 
         return $class;
+    }
+    
+    public function createStoredEventModel( ShouldNotBeStored $event, string $uuid = NULL ): StoredEvent {
+        // TODO: Implement createStoredEventModel() method.
+        throw new UnsupportedException();
     }
 }

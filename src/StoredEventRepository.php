@@ -13,6 +13,8 @@ interface StoredEventRepository
     public function persist(ShouldBeStored $event, string $uuid = null): StoredEvent;
 
     public function persistMany(array $events, string $uuid = null): LazyCollection;
-
+    
     public function update(StoredEvent $storedEvent): StoredEvent;
+    
+    public function createStoredEventModel(ShouldNotBeStored $event, string $uuid = null): StoredEvent;
 }

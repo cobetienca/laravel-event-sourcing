@@ -7,6 +7,7 @@ use Illuminate\Support\LazyCollection;
 use Spatie\EventSourcing\Models\EloquentStoredEvent;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\Exceptions\InvalidEloquentStoredEventModel;
+use Symfony\Component\Serializer\Exception\UnsupportedException;
 
 class ImpersistentEventRepository implements StoredEventRepository
 {
@@ -50,7 +51,7 @@ class ImpersistentEventRepository implements StoredEventRepository
     }
 
     //as per classname state, no data is going to be persist here
-    public function persist(ShouldBeStored $event, string $uuid = null): StoredEvent
+    public function createStoredEventModel(ShouldNotBeStored $event, string $uuid = null): StoredEvent
     {
         /** @var EloquentStoredEvent $eloquentStoredEvent */
         $eloquentStoredEvent = new $this->storedEventModel();
@@ -97,5 +98,10 @@ class ImpersistentEventRepository implements StoredEventRepository
         }
 
         return $class;
+    }
+    
+    public function persist( ShouldBeStored $event, string $uuid = NULL ): StoredEvent {
+        // TODO: Implement persist() method.
+        throw new UnsupportedException();
     }
 }
