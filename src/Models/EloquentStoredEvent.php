@@ -24,15 +24,14 @@ class EloquentStoredEvent extends Model
     public function toStoredEvent(): StoredEvent
     {
         
-        return null;
-//        return new StoredEvent([
-//            'id' => $this->id,
-//            'event_properties' => $this->event_properties,
-//            'aggregate_uuid' => $this->aggregate_uuid,
-//            'event_class' => $this->event_class,
-//            'meta_data' => $this->meta_data,
-//            'created_at' => $this->created_at,
-//        ]);
+        return new StoredEvent([
+            'id' => $this->id,
+            'event_properties' => $this->event_properties,
+            'aggregate_uuid' => $this->aggregate_uuid,
+            'event_class' => $this->event_class,
+            'meta_data' => $this->meta_data,
+            'created_at' => $this->created_at,
+        ]);
     }
 
     public function getEventAttribute(): ShouldBeStored
