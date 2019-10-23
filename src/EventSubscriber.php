@@ -45,7 +45,7 @@ final class EventSubscriber
     
     public function handleEventWoStoring(ShouldNotBeStored $event): void
     {
-        $storedEvent = $this->repository->persist($event);
+        $storedEvent = $this->repository->createStoredEventModel($event);
         $storedEvent->handle();
     }
     
