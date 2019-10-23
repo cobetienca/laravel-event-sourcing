@@ -21,13 +21,13 @@ final class EventSourcingServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/event-sourcing.php' => config_path('event-sourcing.php'),
-            ], 'config');
+            ], 'laravel-event-sourcing-config');
         }
 
         if (! class_exists('CreateStoredEventsTable')) {
             $this->publishes([
                 __DIR__.'/../stubs/create_stored_events_table.php.stub' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_stored_events_table.php'),
-            ], 'migrations');
+            ], 'laravel-event-sourcing-migrations');
         }
 
         Event::subscribe(EventSubscriber::class);

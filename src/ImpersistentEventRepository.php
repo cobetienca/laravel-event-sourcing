@@ -8,7 +8,7 @@ use Spatie\EventSourcing\Models\EloquentStoredEvent;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\Exceptions\InvalidEloquentStoredEventModel;
 
-class EloquentStoredEventRepository implements StoredEventRepository
+class ImpersistentEventRepository implements StoredEventRepository
 {
     protected $storedEventModel;
 
@@ -49,6 +49,7 @@ class EloquentStoredEventRepository implements StoredEventRepository
         });
     }
 
+    //as per classname state, no data is going to be persist here
     public function persist(ShouldBeStored $event, string $uuid = null): StoredEvent
     {
         /** @var EloquentStoredEvent $eloquentStoredEvent */
@@ -62,7 +63,6 @@ class EloquentStoredEventRepository implements StoredEventRepository
             'created_at' => Carbon::now(),
         ]);
 
-         $eloquentStoredEvent->save();
 
         return $eloquentStoredEvent->toStoredEvent();
     }

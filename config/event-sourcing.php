@@ -52,8 +52,10 @@ return [
      * This class is responsible for storing events. To add extra behaviour you
      * can change this to a class of your own. The only restriction is that
      * it should implement \Spatie\EventSourcing\StoredEventRepository.
+     * 2 choices: ImpersistentEventRepository or EloquentStoredEventRepository.
+     * By using impersistent, you cannot use replay event feature.
      */
-    'stored_event_repository' => \Spatie\EventSourcing\EloquentStoredEventRepository::class,
+    'stored_event_repository' => \Spatie\EventSourcing\ImpersistentEventRepository::class,
 
     /*
      * This class is responsible for handling stored events. To add extra behaviour you
