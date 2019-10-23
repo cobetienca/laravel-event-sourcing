@@ -4,6 +4,7 @@ namespace Spatie\EventSourcing;
 
 use Carbon\Carbon;
 use Illuminate\Support\LazyCollection;
+use Spatie\EventSourcing\EventSerializers\ImpersistentEventSerializer;
 use Spatie\EventSourcing\Models\EloquentStoredEvent;
 use Spatie\EventSourcing\EventSerializers\EventSerializer;
 use Spatie\EventSourcing\Exceptions\InvalidEloquentStoredEventModel;
@@ -57,7 +58,7 @@ class ImpersistentEventRepository implements StoredEventRepository
         $eloquentStoredEvent = new $this->storedEventModel();
 
         $eloquentStoredEvent->setRawAttributes([
-            'event_properties' => app(EventSerializer::class)->serialize(clone $event),
+            'event_properties' => app(ImpersistentEventSerializer::class)->serialize(clone $event),
             'aggregate_uuid' => $uuid,
             'event_class' => self::getEventClass(get_class($event)),
             'meta_data' => json_encode([]),
