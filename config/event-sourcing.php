@@ -78,7 +78,7 @@ return [
      * 2 choices: JsonEventSerializer or ImpersistentJsonEventSerializer.
      * By using impersistent, you cannot use replay event feature.
      */
-    'event_serializer' => \Spatie\EventSourcing\EventSerializers\ImpersistentEventSerializer::class,
+    'event_serializer' => \Spatie\EventSourcing\EventSerializers\ImpersistentJsonEventSerializer::class,
 
     /*
      * When replaying events, potentially a lot of events will have to be retrieved.

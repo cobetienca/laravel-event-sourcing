@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 
-final class JsonEventSerializer implements ImpersistentEventSerializer
+final class ImpersistentJsonEventSerializer implements ImpersistentEventSerializer
 {
     /** @var \Symfony\Component\Serializer\Serializer */
     private $serializer;
