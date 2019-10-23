@@ -62,7 +62,7 @@ class EloquentStoredEventRepository implements StoredEventRepository
             'created_at' => Carbon::now(),
         ]);
 
-        $eloquentStoredEvent->save();
+        // $eloquentStoredEvent->save();
 
         return $eloquentStoredEvent->toStoredEvent();
     }
